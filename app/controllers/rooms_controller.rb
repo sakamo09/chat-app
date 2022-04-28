@@ -7,6 +7,12 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
 
+  def destroy
+    room = Room.find(params[:id])
+    room.destroy
+    redirect_to root_path
+  end
+
   def create
     @room = Room.new(room_params)
     if @room.save
